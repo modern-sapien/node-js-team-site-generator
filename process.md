@@ -54,3 +54,15 @@ Generates a team.html file page in an output directory, that displays a formatte
     Role
     ID
     Role specific property
+
+
+
+## Steps
+
+*   Transfer all necessary files & folders from resource folder
+*   Look through test files to get an idea of formatting for .js files for exporting
+*   Check dependencies; npm install Jest & Inquirer
+*   run test jest & make sure all tests are failing prior to any coding
+*   Start with looking over employee.test.js as this will be the class to build other classes will extend from & take notes
+*   Look at other files for reference
+*   Begin writing tests for employee.test.js & move on as all tests pass in this file to other files; Manager, Engineer, Intern.
