@@ -59,10 +59,32 @@ Generates a team.html file page in an output directory, that displays a formatte
 
 ## Steps
 
-*   Transfer all necessary files & folders from resource folder
-*   Look through test files to get an idea of formatting for .js files for exporting
-*   Check dependencies; npm install Jest & Inquirer
-*   run test jest & make sure all tests are failing prior to any coding
-*   Start with looking over employee.test.js as this will be the class to build other classes will extend from & take notes
-*   Look at other files for reference
-*   Begin writing tests for employee.test.js & move on as all tests pass in this file to other files; Manager, Engineer, Intern.
+[Initialization]
+DONE   Transfer all necessary files & folders from resource folder
+DONE   Look through test files to get an idea of formatting for .js files for exporting
+DONE  Check dependencies; npm install Jest & Inquirer
+[Testing]
+DONE   run test jest & make sure all tests are failing prior to any coding
+DONE   Start with looking over employee.test.js as this will be the class to build other classes will extend from & take notes
+DONE   Look at other files for reference
+DONE   Begin writing tests for employee.test.js & move on as all tests pass in this file to other files; Manager, Engineer, Intern.
+[Inquirer.prompt]
+Will need to write three different one primary "Employee" track of questions to gather from user inputs
+
+Role:   List w/ choices
+        Manager, Engineer, Intern
+Name:
+Id:
+Email:
+
+if manager {  office number  }
+
+if else engineer {  github  }
+
+else intern { school }
+
+More team members?     List w/ choices     
+                        Yes or No
+if {response === yes} RETURN
+
+ELSE {end}
