@@ -30,6 +30,9 @@ Employee
     getEmail()
     getRole()   // Returns 'Employee'
 Manager
+    name    - inherited
+    id      - inherited
+    email   - inherited
     officeNumber
     getRole()   // Overridden to return 'Manager'
 

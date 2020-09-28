@@ -11,18 +11,32 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const { title } = require("process");
 
+teamMembers = []
 
 inquirer.prompt([
     {   name: "title",
-        type: "input",
-        message: "What is the team members position?"},
-    {   name: "title",
         type: "list",
-        message: "What is the team members position?"},
-    {   name: "title",
-        type: "list",
-        message: "What is the team members position?"},
-])
+        message: "What is the team members position?",
+        choices: ["manager", "engineer", "intern", "no new team members"]
+    }
+]).then((response)  => {
+    if (response.title === "manager")   {
+        Manager.createManager();
+    } 
+    else if (response.title === "engineer")   {
+        Engineer.createEngineer();
+    }
+    else if (response.title === "intern")   {
+        Intern.createIntern();
+    }
+    else {console.log("END THE CYCLE!")}
+    }).catch((err) =>   {
+        console.log(err)
+    })
+
+
+
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
