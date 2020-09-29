@@ -11,7 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const { title } = require("process");
 
-teamMembers = []
+const teamMembers = [];
 
 inquirer.prompt([
     {   name: "title",
@@ -24,7 +24,11 @@ inquirer.prompt([
         Manager.createManager();
     } 
     else if (response.title === "engineer")   {
-        Engineer.createEngineer();
+        Engineer.createEngineer().then((eng) => {
+        console.log("booop")
+        teamMembers.push(eng);
+        console.log(teamMembers)
+        });
     }
     else if (response.title === "intern")   {
         Intern.createIntern();
@@ -33,6 +37,7 @@ inquirer.prompt([
     }).catch((err) =>   {
         console.log(err)
     })
+
 
 
 
