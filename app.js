@@ -16,7 +16,6 @@ const teamMembers = [];
 createTeam()
 
 async function createTeam() {
-
 inquirer.prompt([
     {   name: "title",
         type: "list",
@@ -53,9 +52,7 @@ inquirer.prompt([
         console.log("END THE CYCLE!")}
     }).catch((err) =>   {
         console.log(err)
-        
     })
-
 }
 
 
