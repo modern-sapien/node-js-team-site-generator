@@ -13,6 +13,10 @@ const { title } = require("process");
 
 const teamMembers = [];
 
+createTeam()
+
+async function createTeam() {
+
 inquirer.prompt([
     {   name: "title",
         type: "list",
@@ -21,24 +25,38 @@ inquirer.prompt([
     }
 ]).then((response)  => {
     if (response.title === "manager")   {
-        Manager.createManager();
+        Manager.createManager().then((man) => {
+            teamMembers.push(man);
+            console.log(teamMembers);
+            createTeam();
+            });
     } 
     else if (response.title === "engineer")   {
         Engineer.createEngineer().then((eng) => {
-        console.log("booop")
         teamMembers.push(eng);
-        console.log(teamMembers)
+        console.log(teamMembers);
+        createTeam();
         });
     }
     else if (response.title === "intern")   {
-        Intern.createIntern();
+        Intern.createIntern().then((int) => {
+            teamMembers.push(int);
+            console.log(teamMembers);
+            createTeam();
+            });
     }
-    else {console.log("END THE CYCLE!")}
+    else {
+        const displayTeam = render(teamMembers);
+        fs.writeFile(outputPath, displayTeam, function(err) {
+            if (err) throw err
+        })
+        console.log("END THE CYCLE!")}
     }).catch((err) =>   {
         console.log(err)
+        
     })
 
-
+}
 
 
 
