@@ -15,47 +15,47 @@
 
 // const teamMembers = [];
 
-// createTeam();
+createTeam();
 
-// async function createTeam() {
-// try {               
-//     const response = await inquirer.prompt([
-//     {   name: "title",
-//         type: "list",
-//         message: "What is the team members position?",
-//         choices: ["manager", "engineer", "intern", "no new team members"]
-//     }
-// ]) 
-//     if (response.title === "manager")   {
-//         const man = await Manager.createManager();
-//             teamMembers.push(man);
-//             console.log(teamMembers);
-//             createTeam();
-//     } 
-//     else if (response.title === "engineer")   {
-//         const eng = await Engineer.createEngineer();
-//         teamMembers.push(eng);
-//         console.log(teamMembers);
-//         createTeam();
-//     }
-//     else if (response.title === "intern")   {
-//         const int = await Intern.createIntern();
-//         teamMembers.push(int);
-//         console.log(teamMembers);
-//         createTeam();
-//     }
-//     else {
-//         const displayTeam = render(teamMembers);
-//         fs.writeFile(outputPath, displayTeam, function(err) {
-//             if (err) throw err
-//         })
-//         console.log("END THE CYCLE!")}
-// } 
-// catch(error) {
-//     if (error) throw new Error(error)
-// }
+async function createTeam() {
+try {               
+    const response = await inquirer.prompt([
+    {   name: "title",
+        type: "list",
+        message: "What is the team members position?",
+        choices: ["manager", "engineer", "intern", "no new team members"]
+    }
+]) 
+    if (response.title === "manager")   {
+        const man = await Manager.createManager();
+            teamMembers.push(man);
+            console.log(teamMembers);
+            createTeam();
+    } 
+    else if (response.title === "engineer")   {
+        const eng = await Engineer.createEngineer();
+        teamMembers.push(eng);
+        console.log(teamMembers);
+        createTeam();
+    }
+    else if (response.title === "intern")   {
+        const int = await Intern.createIntern();
+        teamMembers.push(int);
+        console.log(teamMembers);
+        createTeam();
+    }
+    else {
+        const displayTeam = render(teamMembers);
+        fs.writeFile(outputPath, displayTeam, function(err) {
+            if (err) throw err
+        })
+        console.log("END THE CYCLE!")}
+} 
+catch(error) {
+    if (error) throw new Error(error)
+}
 
-// }
+}
 
 
 // Write code to use inquirer to gather information about the development team members,
