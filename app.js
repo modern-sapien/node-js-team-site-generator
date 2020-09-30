@@ -13,24 +13,21 @@ const { title } = require("process");
 
 const teamMembers = [];
 
-createTeam()
+Manager.createManager().then((man) => {
+    teamMembers.push(man);
+    console.log(teamMembers);
+    createTeam();
+    });
 
-async function createTeam() {
+function createTeam() {
 inquirer.prompt([
     {   name: "title",
         type: "list",
         message: "What is the team members position?",
-        choices: ["manager", "engineer", "intern", "no new team members"]
+        choices: ["engineer", "intern", "no new team members"]
     }
 ]).then((response)  => {
-    if (response.title === "manager")   {
-        Manager.createManager().then((man) => {
-            teamMembers.push(man);
-            console.log(teamMembers);
-            createTeam();
-            });
-    } 
-    else if (response.title === "engineer")   {
+    if (response.title === "engineer")   {
         Engineer.createEngineer().then((eng) => {
         teamMembers.push(eng);
         console.log(teamMembers);
